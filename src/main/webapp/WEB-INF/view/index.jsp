@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fit-Together</title>
 </head>
 <body>
 	<h3>hello</h3>
