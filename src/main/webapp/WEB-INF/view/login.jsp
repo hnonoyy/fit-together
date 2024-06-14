@@ -29,16 +29,17 @@
 			
 			<form class="border-rounded  p-5" action="${pageContext.servletContext.contextPath }/login-handle"
 			method="post">
+			 	<c:if test=""></c:if>
 				<div>
 					<label class="fs-3">계정아이디<span class="warning">(*)</span></label>
 					<div class="my-1">
-						<input name="id" type="text" placeholder="아이디.." class="w-100 p-1 fs-4 border-rounded" />
+						<input name="id" type="text" placeholder="아이디" class="w-100 p-1 fs-4 border-rounded" />
 					</div>
 				</div>
 				<div>
 					<label class="fs-3">계정 비밀번호<span class="warning">(*)</span></label>
 					<div class="my-1">
-						<input name="password" type="password" placeholder="비밀번호.." class="w-100 p-1 fs-4 border-rounded" />
+						<input name="password" type="password" placeholder="비밀번호" class="w-100 p-1 fs-4 border-rounded" />
 					</div>
 				</div>
 				<div class="my-5">
