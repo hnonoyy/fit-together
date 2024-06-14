@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.UserDao;
+import model.vo.Users;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
@@ -15,13 +16,9 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
-		
-		
-		
-		
 		request.setAttribute("title", "로그인");
+		
+		
 		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 		
 	}

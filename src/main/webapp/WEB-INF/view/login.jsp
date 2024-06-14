@@ -26,16 +26,37 @@
 		</div>
 		<div class="wrap-x-sm">
 			<h2 class="text-center">핏투게더 즐기기</h2>
-			
+			<c:if test="${not empty userId }">
+				<div class="p-5 border-rounded my-3 text-center"
+					style="background-color: #4da0ff; color: white">
+					<p class="fs-3">
+						🎉핏투게더에 가입하신걸 환영합니다🎉
+					</p>  
+					<p class="fs-3">
+						로그인 후 이용해주세요
+					</p>
+				</div>
+			</c:if>
 			<form class="border-rounded  p-5" action="${pageContext.servletContext.contextPath }/login-handle"
 			method="post">
-			 	<c:if test=""></c:if>
-				<div>
-					<label class="fs-3">계정아이디<span class="warning">(*)</span></label>
-					<div class="my-1">
-						<input name="id" type="text" placeholder="아이디" class="w-100 p-1 fs-4 border-rounded" />
+			 	<c:choose>
+			 	<c:when test="${not empty userId }">
+					<div>
+						<label class="fs-3">계정아이디<span class="warning">(*)</span></label>
+						<div class="my-1">
+							<input name="id" type="text" value="${userId }" placeholder="아이디" class="w-100 p-1 fs-4 border-rounded" />
+						</div>
 					</div>
-				</div>
+				</c:when>
+				<c:otherwise>
+					<div>
+						<label class="fs-3">계정아이디<span class="warning">(*)</span></label>
+						<div class="my-1">
+							<input name="id" type="text" placeholder="아이디" class="w-100 p-1 fs-4 border-rounded" />
+						</div>
+					</div>
+				</c:otherwise>
+				</c:choose>
 				<div>
 					<label class="fs-3">계정 비밀번호<span class="warning">(*)</span></label>
 					<div class="my-1">

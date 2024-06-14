@@ -36,10 +36,11 @@ public class SignupHandleController extends HttpServlet {
 			if(exist == null) {
 				Users one = new Users(id,password,name,gender,birth,email,String.join(",", interests));
 				result = userdao.saveUser(one);
-				request.getSession().setAttribute("authUser", one);
 			}
 			if(result) {
+				request.getSession().setAttribute("userId", id);
 				response.sendRedirect(request.getContextPath()+"/login");
+				
 			}else {
 				response.sendRedirect(request.getContextPath()+"/signup?error");
 			}
