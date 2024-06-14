@@ -12,32 +12,30 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 public class SportsCenterDao {
 	
 	
-	public List<SportsCenter> sportsCenterType(String type) throws Exception {
-		OracleDataSource ods = new OracleDataSource();
-		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
-		ods.setUser("fit_together");
-		ods.setPassword("oracle");
-		try (Connection conn = ods.getConnection()) {
+	 public List<String> sportsCenterDistinctTypes() throws Exception {
+	        OracleDataSource ods = new OracleDataSource();
+	        ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
+	        ods.setUser("fit_together");
+	        ods.setPassword("oracle");
 
-			// 식별키로 조회하고
-			PreparedStatement stmt = conn.prepareStatement("SELECT DISTINCT TYPE FROM GYMS");
-			stmt.setString(1, type);
+	        try (Connection conn = ods.getConnection()) {
 
-			ResultSet rs = stmt.executeQuery();
-			List<SportsCenter> sportsCenter = new ArrayList<>();
-			
-			while(rs.next()) {
-				SportsCenter one = new SportsCenter(rs.getInt("id"), rs.getString("type"), rs.getString("name"), rs.getString("owner"), rs.getString("management"));  
-				sportsCenter.add(one);
-			}
-			return sportsCenter;
-			
-		} catch (Exception e) {
-			System.out.println(e);
-			return null;
-		}
-		
-	}
+	            PreparedStatement stmt = conn.prepareStatement("SELECT DISTINCT TYPE FROM SPORTSCENTER");
+
+	            ResultSet rs = stmt.executeQuery();
+	            List<String> types = new ArrayList<>();
+
+	            while (rs.next()) {
+	                types.add(rs.getString("type"));
+	            }
+
+	            return types;
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
 
 	public List<SportsCenter> findBytype(String type) throws Exception {
 		OracleDataSource ods = new OracleDataSource();
@@ -46,7 +44,6 @@ public class SportsCenterDao {
 		ods.setPassword("oracle");
 		try (Connection conn = ods.getConnection()) {
 
-			// 식별키로 조회하고
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM SPORTSCENTER WHERE TYPE=?");
 			stmt.setString(1, type);
 
@@ -72,8 +69,7 @@ public class SportsCenterDao {
 		ods.setPassword("oracle");
 		try (Connection conn = ods.getConnection()) {
 
-			// 식별키로 조회하고
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM SPORTSCENTER WHERE TYPE=?");
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM SPORTSCENTER WHERE ID=?");
 			stmt.setInt(1, id);
 
 			ResultSet rs = stmt.executeQuery();

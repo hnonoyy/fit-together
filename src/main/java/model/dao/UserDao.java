@@ -9,7 +9,7 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 
 public class UserDao {
 
-	public boolean save(Users newUsers) throws Exception {
+	public boolean saveUser(Users newUsers) throws Exception {
 		OracleDataSource ods = new OracleDataSource();
 		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
 		ods.setUser("fit_together");
@@ -42,7 +42,6 @@ public class UserDao {
 		ods.setPassword("oracle");
 		try (Connection conn = ods.getConnection()) {
 
-			// 식별키로 조회하고
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM USERS WHERE ID=?");
 			stmt.setString(1, id);
 

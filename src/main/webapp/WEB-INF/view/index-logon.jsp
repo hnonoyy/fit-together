@@ -19,16 +19,11 @@
 </head>
 <body>
 	<div class="container px-1">
-		<div>
+		<div class="d-flex space-between">
 			<h1 class="text-center">핏투게더</h1>
+			${sessionScope.authUser.name }님 로그온
 		</div>
 	</div>
-	<div class="text-right">
-		<a href="<%=application.getContextPath() %>/login" 
-		class="no-deco-link ">로그인</a> |
-		<a href="<%=application.getContextPath() %>/signup" 
-		class="no-deco-link ">회원가입</a>
-
-	</div>
+	
 </body>
 </html>

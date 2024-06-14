@@ -8,31 +8,31 @@ public class Events {
 	String title;
 	String description;
 	String tag;
-	int gymId;
+	int sportsCenterId;
 	String hostId;
 	Date openAt;
 	int capacity;
 	int attendee;
-	Date register_at;
+	Date registerAt;
 	
 //====================================
 	public Events() {
 		super();
 	}
 
-	public Events(int id, String title, String description, String tag, int gymId, String hostId, Date openAt,
-			int capacity, int attendee, Date register_at) {
+	public Events(int id, String title, String description, String tag, int sportsCenterId, String hostId, Date openAt,
+			int capacity, int attendee, Date registerAt) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.tag = tag;
-		this.gymId = gymId;
+		this.sportsCenterId = sportsCenterId;
 		this.hostId = hostId;
 		this.openAt = openAt;
 		this.capacity = capacity;
 		this.attendee = attendee;
-		this.register_at = register_at;
+		this.registerAt = registerAt;
 	}
 
 //====================================
@@ -52,8 +52,8 @@ public class Events {
 		return tag;
 	}
 
-	public int getGymId() {
-		return gymId;
+	public int getsportsCenterId() {
+		return sportsCenterId;
 	}
 
 	public String getHostId() {
@@ -72,8 +72,8 @@ public class Events {
 		return attendee;
 	}
 
-	public Date getRegister_at() {
-		return register_at;
+	public Date getRegisterAt() {
+		return registerAt;
 	}
 
 	
