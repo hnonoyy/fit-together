@@ -39,8 +39,28 @@ a {
 	display: flex;
 }
 
+.align-r {
+	align-items: flex-start;
+}
+
+.align-center{
+	align-items: center;
+}
+.space-left {
+	justify-content: flex-start;
+}
+.space-right {
+	justify-content: flex-end;
+}
+.space-right2 {
+	justify-content: flex-end;
+	gap: 10px;
+}
 .space-between {
 	justify-content: space-between;
+}
+.space-center{
+	justify-content: center;
 }
 
 /* 컴포넌트 너비 클래스 */
@@ -60,7 +80,10 @@ a {
 	border: 1px solid #999;
 	border-radius: 4px;
 }
-
+.border-rounded2 {
+	border: 1px solid #c0c0c0;
+	border-radius: 10px;
+}
 /* 글씨 정렬 클래스 */
 .text-left {
 	text-align: left;
@@ -73,12 +96,29 @@ a {
 .text-right {
 	text-align: right;
 }
+.float-left{
+	float: left;
+}
+.float-right{
+	float: right;
+}
+.float-inherit{
+	float: inherit;
+}
 
 /* 글씨 색상 클래스 */
 .warning {
-	color: orangered;
+	color: red;
 }
-
+.emphasize{
+	color: #fd5740;
+}
+.logon{
+	color: #0080ff;
+}
+.hash{
+	color: #0080c0;
+}
 .fs-1 {
 	font-size: 2rem;
 }
@@ -102,8 +142,13 @@ a {
 .fs-6 {
 	font-size: 0.65rem;
 }
-/* 글씨 색상 */
-
+/* 글씨 두께 */
+.fw-1{
+	font-weight: lighter;
+}
+.fw-2{
+	font-weight: bold;
+}
 /* 기본 패딩 클래스 */
 .p-1 {
 	padding: 4px;
@@ -124,7 +169,9 @@ a {
 .p-5 {
 	padding: 20px;
 }
-
+.p-6 {
+	padding: 30px;
+}
 .px-1 {
 	padding-left: 4px;
 	padding-right: 4px;
@@ -194,4 +241,28 @@ a {
 .no-deco-link {
 	color: #444;
 	text-decoration: none;
+}
+/* 버튼 클래스 */
+.button {
+	background-color: #d9e3fb;
+	cursor: pointer;
+}
+
+.button2:hover {
+	background-color: #aed2f7;
+	color: white;
+}
+.align-right-b{
+	border:1px solid #fefdc2;
+	border-radius: 10px;
+	background-color : #fde46f;
+	color:fw-2;
+	padding:5px;
+	margin: 10px;
+	cursor: pointer;
+	float: right;
+}
+.b2:hover {
+	background-color: #f8bc1f;
+	color: white;
 }

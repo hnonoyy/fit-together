@@ -30,5 +30,13 @@
 		class="no-deco-link ">회원가입</a>
 
 	</div>
+	<div>
+		<a href="<%=application.getContextPath() %>/events/design" 
+		class="no-deco-link ">행사등록</a>
+	</div>
+	<div>
+		<a href="<%=application.getContextPath() %>/events" 
+		class="no-deco-link ">행사목록</a>
+	</div>
 </body>
 </html>

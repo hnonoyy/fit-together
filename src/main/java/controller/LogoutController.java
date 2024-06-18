@@ -8,20 +8,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/login")
-public class LoginController extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutController extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(request.getParameter("url") != null) {
-			request.getSession().setAttribute("redirectUrl", request.getParameter("url"));
-		}else {
-			request.getSession().setAttribute("redirectUrl", "/index");
-		}
+		request.getSession().setAttribute("authUser", false);
+		request.getSession().setAttribute("auth_user_id", null);
 		
-		request.setAttribute("title", "로그인");
-		request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
 }

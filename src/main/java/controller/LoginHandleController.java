@@ -16,6 +16,7 @@ public class LoginHandleController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		request.setAttribute("title", "로그인");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		try {
@@ -25,7 +26,8 @@ public class LoginHandleController extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/view/login-error.jsp").forward(request, response);
 			}else {
 				request.getSession().setAttribute("authUser", user);
-				response.sendRedirect(request.getContextPath()+"/index");
+				String redirectUrl = (String)request.getSession().getAttribute("redirectUrl");
+				response.sendRedirect(request.getContextPath()+redirectUrl);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -42,7 +42,7 @@
 					</div>
 				</div>
 				<div class="my-5">
-					<button type="submit" class="w-100 fs-3 p-2 border-rounded">로그인</button>
+					<button type="submit" class="w-100 fs-3 p-2 border-rounded button button2">로그인</button>
 				</div>
 			</form>
 			

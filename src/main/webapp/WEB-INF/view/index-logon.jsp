@@ -19,11 +19,25 @@
 </head>
 <body>
 	<div class="container px-1">
-		<div class="d-flex space-between">
+		<div class="text-right">
+			<p>
+			${sessionScope.authUser.name }님 |
+			<a class="no-deco-link " href="${pageContext.servletContext.contextPath }/logout">
+				<span>로그아웃</span>
+			</a>
+			</p>
+		</div>
+		<div class="d-flex space-center">
 			<h1 class="text-center">핏투게더</h1>
-			${sessionScope.authUser.name }님 로그온
 		</div>
 	</div>
-	
+	<div>
+		<a href="<%=application.getContextPath() %>/events/design" 
+		class="no-deco-link ">행사등록</a>
+	</div>
+	<div>
+		<a href="<%=application.getContextPath() %>/events" 
+		class="no-deco-link ">행사목록</a>
+	</div>
 </body>
 </html>

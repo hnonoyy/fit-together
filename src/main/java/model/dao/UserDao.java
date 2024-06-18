@@ -30,7 +30,7 @@ public class UserDao {
 			return r == 1 ? true : false;
 
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -54,7 +54,7 @@ public class UserDao {
 			}
 
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 			return null;
 		}
 	}

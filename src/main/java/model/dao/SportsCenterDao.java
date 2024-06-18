@@ -11,32 +11,6 @@ import oracle.jdbc.datasource.impl.OracleDataSource;
 
 public class SportsCenterDao {
 	
-	
-	 public List<String> sportsCenterDistinctTypes() throws Exception {
-	        OracleDataSource ods = new OracleDataSource();
-	        ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
-	        ods.setUser("fit_together");
-	        ods.setPassword("oracle");
-
-	        try (Connection conn = ods.getConnection()) {
-
-	            PreparedStatement stmt = conn.prepareStatement("SELECT DISTINCT TYPE FROM SPORTSCENTER");
-
-	            ResultSet rs = stmt.executeQuery();
-	            List<String> types = new ArrayList<>();
-
-	            while (rs.next()) {
-	                types.add(rs.getString("type"));
-	            }
-
-	            return types;
-
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-	    }
-
 	public List<SportsCenter> findBytype(String type) throws Exception {
 		OracleDataSource ods = new OracleDataSource();
 		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
@@ -46,7 +20,6 @@ public class SportsCenterDao {
 
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM SPORTSCENTER WHERE TYPE=?");
 			stmt.setString(1, type);
-
 			ResultSet rs = stmt.executeQuery();
 			List<SportsCenter> sportsCenter = new ArrayList<>();
 			
@@ -57,7 +30,7 @@ public class SportsCenterDao {
 			return sportsCenter;
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -71,7 +44,6 @@ public class SportsCenterDao {
 
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM SPORTSCENTER WHERE ID=?");
 			stmt.setInt(1, id);
-
 			ResultSet rs = stmt.executeQuery();
 			
 			if (rs.next()) {
@@ -80,7 +52,32 @@ public class SportsCenterDao {
 				return null;
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public List<String> sportsCenterDistinctTypes() throws Exception {
+		OracleDataSource ods = new OracleDataSource();
+		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
+		ods.setUser("fit_together");
+		ods.setPassword("oracle");
+		
+		try (Connection conn = ods.getConnection()) {
+			
+			PreparedStatement stmt = conn.prepareStatement("SELECT DISTINCT TYPE FROM SPORTSCENTER");
+			
+			ResultSet rs = stmt.executeQuery();
+			List<String> types = new ArrayList<>();
+			
+			while (rs.next()) {
+				types.add(rs.getString("type"));
+			}
+			
+			return types;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

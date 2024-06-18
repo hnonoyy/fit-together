@@ -23,55 +23,56 @@
 			<h1 class="text-center">핏투게더</h1>
 		</div>
 		<div class="wrap-sm">
-			<h2>핏투게더 계정 만들기</h2>
+			<h2>핏투게더 계정 생성</h2>
 			<p class="fs-4">함께 건강하고 활동적인 생활을 시작해보세요! 지금 바로 가입하고, 당신에게 맞는 스포츠 활동을 찾아보세요.</p>
 			<c:if test="${param.error != null }">
-				<div>
-				회원가입에 실패하였습니다. 다시 시도해주세요
-				</div>
+				<div class="p-5 border-rounded my-3"
+					style="background-color: lightcoral; color: white">
+					회원가입에 실패했습니다. 다시 시도해주세요
+			</div>
 			</c:if>
 			<form 
 				action="${pageContext.servletContext.contextPath }/signup-handle"
 				method="post"
 			>
 				<div>
-					<label class="fs-3">계정아이디(*)</label>
+					<label class="fs-3">계정아이디<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<input type="text" placeholder="아이디" class="w-100 p-1 fs-4" name="id"/>
 					</div>
 				</div>
 				<div>
-					<label class="fs-3">계정 비밀번호(*)</label>
+					<label class="fs-3">계정 비밀번호<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<input type="password" placeholder="비밀번호" class="w-100 p-1 fs-4" name="password" />
 					</div>
 				</div>
 				<div>
-					<label class="fs-3">사용자 이름(*)</label>
+					<label class="fs-3">사용자 이름<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<input type="text" placeholder="사용자 이름" class="w-100 p-1 fs-4"  name="name"/>
 					</div>
 				</div>
 				<div>
-					<label class="fs-3">e-mail(*)</label>
+					<label class="fs-3">e-mail<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<input type="text" placeholder="E-mail" class="w-100 p-1 fs-4"  name="email"/>
 					</div>
 				</div>
 				<div>
-					<label class="fs-3">탄생년도(*)</label>
+					<label class="fs-3">탄생년도<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<select class="w-100 p-1 fs-4" name="birth">
 							<option disabled selected>탄생년도</option>
 							<c:forEach var="i" begin="0" end="60">
-								<option>${2010-i }</option>
+								<option >${2010-i }</option>
 							</c:forEach>
 						</select>
 
 					</div>
 				</div>
 				<div>
-					<label class="fs-3">성별(*)</label>
+					<label class="fs-3">성별<span class="fs-4 warning">(*)</span></label>
 					<div class="my-1">
 						<select class="w-100 p-1 fs-4" name="gender">
 							<option disabled selected>성별</option>
