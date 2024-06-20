@@ -24,7 +24,7 @@
 		</div>
 		<div >
 			<a href="${pageContext.servletContext.contextPath }/events">
-			<span class="fw-2">행사목록</span>
+			<span class="fw-2 ">행사목록</span>
 			</a>
 			 &gt; <span class="warning">행사</span>
 		</div>

@@ -13,11 +13,11 @@
 	  		<a class="no-deco-link" href="${pageContext.servletContext.contextPath }/index">
 			<i class="fa-solid fa-dumbbell"></i>		  		</a>
 	  		<a href="${pageContext.servletContext.contextPath }/events"
-	  		class="fs-3 badge-dark">행사목록 <small></small></a>
+	  		class="fs-3 badge-dark no-deco-link">행사목록 <small></small></a>
 	  		<a href="${pageContext.servletContext.contextPath }/events"
-			class="fs-3 badge-dark">자유게시판 <small></small></a> 
+			class="fs-3 badge-dark no-deco-link">자유게시판 <small></small></a> 
 			<a href="${pageContext.servletContext.contextPath }/events"
-			class="fs-3 badge-dark">체육시설 <small></small></a>
+			class="fs-3 badge-dark no-deco-link">체육시설 <small></small></a>
 			<div>
 				<form class="fa-search" action="${pageContext.servletContext.contextPath }/search">
 					<input class="search-box" type="text" placeholder="검색하세요" name="q"/>
