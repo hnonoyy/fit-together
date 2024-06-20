@@ -18,22 +18,23 @@
 	href="${pageContext.servletContext.contextPath }/css/style.css?<%=System.currentTimeMillis() %>" />
 </head>
 <body>
-	<div class="my-3">
-			<%@ include file="/WEB-INF/view/common/nav.jsp" %>
-	</div>
 	<div class="container px-1">
-	
-		<div class="d-flex space-center">
-			<h1 class="text-center">핏투게더</h1>
+		<div class="my-3">
+			<%@ include file="/WEB-INF/view/common/nav.jsp" %>
 		</div>
-	</div>
-	<div>
-		<a href="<%=application.getContextPath() %>/events/design" 
-		class="no-deco-link ">행사등록</a>
-	</div>
-	<div>
-		<a href="<%=application.getContextPath() %>/events" 
-		class="no-deco-link ">행사목록</a>
+		<h1 class="my-2">검색결과</h1>
+		<p><b>${q }</b>에 대한 검색결과입니다.</p>
+		<div>
+		<ul>
+			<c:forEach items="${foundEvents }" var="one">
+				<c:url value="/events/${one.id }" var="link" />
+				<a class="no-deco-link" href="${link }">
+					<li>${one.title }  - ${one.description }</li>
+				</a>
+			</c:forEach>
+		</ul>
+		</div>	
+
 	</div>
 </body>
 </html>

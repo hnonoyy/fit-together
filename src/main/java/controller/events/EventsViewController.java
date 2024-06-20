@@ -76,7 +76,8 @@ public class EventsViewController extends HttpServlet {
 			}else if(tab.equals("comments")) {
 				request.getRequestDispatcher("/WEB-INF/view/events/view-comments.jsp").forward(request, response);
 			}
-						
+			
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.getRequestDispatcher("/WEB-INF/view/events/error.jsp").forward(request, response);

@@ -94,5 +94,6 @@ public class ParticipantDao {
 			e.printStackTrace();
 			return null;
 		}
-	}	
+	}
+	
 }

@@ -39,8 +39,11 @@ a {
 	display: flex;
 }
 
-.align-r {
+.align-l {
 	align-items: flex-start;
+}
+.align-l {
+	align-items: flex-end;
 }
 
 .align-center{
@@ -61,6 +64,25 @@ a {
 }
 .space-center{
 	justify-content: center;
+}
+.space-bg {
+	justify-content: space-between;
+	gap: 10px;
+}
+.g-1{
+	gap: 10px;
+}
+.g-2{
+	gap: 20px;
+}
+.g-3{
+	gap: 30px;
+}
+.g-4{
+	gap: 40px;
+}
+.g-5{
+	gap: 50px;
 }
 
 /* 컴포넌트 너비 클래스 */
@@ -265,4 +287,29 @@ a {
 .b2:hover {
 	background-color: #f8bc1f;
 	color: white;
+}
+/* 박스 클래스 */
+.box-s1{
+	width: 720px;
+	height: 100px;
+	margin: auto;
+}
+.search-box{
+	width: 360px;
+	height: 30px;
+	margin: auto;
+	text-align: right;
+	padding-right: 30px;
+}
+.fa-search{
+    position: relative;
+}
+.fa-search::before{
+	display: none;
+}
+.icon-search{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #999;
 }

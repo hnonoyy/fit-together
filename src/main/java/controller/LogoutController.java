@@ -7,16 +7,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.vo.Users;
 
 @WebServlet("/logout")
 public class LogoutController extends HttpServlet{
 	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getSession().setAttribute("authUser", false);
-		request.getSession().setAttribute("auth_user_id", null);
+		if(request.getSession().getAttribute("authUser") == null) {
+			response.sendRedirect(request.getContextPath()+"/index");
+			return;
+		}
+		request.getRequestDispatcher("/WEB-INF/view/logout-decide.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().removeAttribute("authUser");
+		response.sendRedirect(request.getContextPath()+"/index");
 	}
 }

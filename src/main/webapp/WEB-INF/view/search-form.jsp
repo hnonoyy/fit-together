@@ -18,22 +18,17 @@
 	href="${pageContext.servletContext.contextPath }/css/style.css?<%=System.currentTimeMillis() %>" />
 </head>
 <body>
-	<div class="my-3">
-			<%@ include file="/WEB-INF/view/common/nav.jsp" %>
-	</div>
-	<div class="container px-1">
-	
-		<div class="d-flex space-center">
-			<h1 class="text-center">핏투게더</h1>
+	<div class="conatiner text-center" style="margin-top : 100px">
+		<h1 style="font-weight: bold">핏투게더</h1>
+		<div>
+			<form action="${pageContext.servletContext.contextPath }/search">
+				<input type="text" class="p-3 fs-3 w-50 border-rounded" name="q"  placeholder="검색어를 입력하세요"/>
+			</form>
 		</div>
-	</div>
-	<div>
-		<a href="<%=application.getContextPath() %>/events/design" 
-		class="no-deco-link ">행사등록</a>
-	</div>
-	<div>
-		<a href="<%=application.getContextPath() %>/events" 
-		class="no-deco-link ">행사목록</a>
+		<div class="my-3">
+			<img src="${pageContext.servletContext.contextPath }/image/search.png" 
+				style="width: 70% ; border-radius: 5%"/>
+		</div>
 	</div>
 </body>
 </html>

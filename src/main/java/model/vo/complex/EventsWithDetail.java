@@ -7,6 +7,7 @@ public class EventsWithDetail {
 	Events event;
 	SportsCenter sportsCenter;
 	boolean isJoined;
+	double dday;
 
 	public Events getEvent() {
 		return event;
@@ -30,5 +31,13 @@ public class EventsWithDetail {
 
 	public void setJoined(boolean isJoined) {
 		this.isJoined = isJoined;
+	}
+
+	public double getDday() {
+		return dday;
+	}
+
+	public void setDday(double dday) {
+		this.dday = dday;
 	}
 }

@@ -23,7 +23,11 @@
 			<%@ include file="/WEB-INF/view/common/nav.jsp" %>
 		</div>
 		<h1 class="my-2">등록된 체육행사 목록</h1>
-
+		<div class="d-flex g-1">
+			<c:forEach var="one" items="${tagCounts }">
+				<span>${one.tag }(${one.cnt })</span>
+			</c:forEach>
+		</div>
 		<div style="display: flex; flex-wrap: wrap;">
 			<c:forEach items="${events }" var="one">
 				<div style="width: 50%; padding: 4px;">

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.vo.Events;
+import model.vo.complex.EventTagCount;
 import oracle.jdbc.datasource.impl.OracleDataSource;
 
 public class EventDao {
@@ -191,4 +192,73 @@ public class EventDao {
 		}
 	}
 
+	public List<EventTagCount> countGroupByTag() throws SQLException{
+		OracleDataSource ods = new OracleDataSource();
+		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
+		ods.setUser("fit_together");
+		ods.setPassword("oracle");
+		
+		try (Connection conn = ods.getConnection()) {
+
+			PreparedStatement stmt = conn.prepareStatement("select tag, count(*) cnt from events group by tag order by cnt desc");
+			
+			ResultSet rs = stmt.executeQuery();
+			List<EventTagCount> eventTagCount = new ArrayList<>();
+			
+			while (rs.next()) {
+				EventTagCount one = new EventTagCount(rs.getString("tag"), rs.getInt("cnt"));
+				eventTagCount.add(one);
+			}
+			return eventTagCount;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Events> findByTitleLikeOrDescriptionLike(String pattern) throws SQLException{
+		OracleDataSource ods = new OracleDataSource();
+		ods.setURL("jdbc:oracle:thin:@//3.35.208.47:1521/xe");
+		ods.setUser("fit_together");
+		ods.setPassword("oracle");
+		try (Connection conn = ods.getConnection()) {
+
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM EVENTS WHERE TITLE LIKE ? OR DESCRIPTION LIKE ? ORDER BY OPEN_AT ASC");
+			stmt.setString(1, "%"+pattern+"%");
+			stmt.setString(2, "%"+pattern+"%");
+			ResultSet rs = stmt.executeQuery();
+			List<Events> events = new ArrayList<Events>();
+			while (rs.next()) {
+				Events one = new Events(rs.getInt("id"), rs.getString("title"), rs.getString("description"),
+						rs.getString("tag"), rs.getInt("sportscenter_id"), rs.getString("host_id"), rs.getDate("open_at"),
+						rs.getInt("capacity"), rs.getInt("attendee"), rs.getDate("register_at"));
+				events.add(one);
+			}
+
+			return events;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

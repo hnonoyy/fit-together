@@ -18,17 +18,13 @@
 	href="${pageContext.servletContext.contextPath }/css/style.css?<%=System.currentTimeMillis() %>" />
 </head>
 <body>
+	<div class="my-3">
+		<%@ include file="/WEB-INF/view/common/nav.jsp" %>
+	</div>
 	<div class="container px-1">
 		<div>
 			<h1 class="text-center">핏투게더</h1>
 		</div>
-	</div>
-	<div class="text-right">
-		<a href="<%=application.getContextPath() %>/login" 
-		class="no-deco-link ">로그인</a> |
-		<a href="<%=application.getContextPath() %>/signup" 
-		class="no-deco-link ">회원가입</a>
-
 	</div>
 	<div>
 		<a href="<%=application.getContextPath() %>/events/design" 
