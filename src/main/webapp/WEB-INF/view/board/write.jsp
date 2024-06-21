@@ -32,33 +32,36 @@
 			style="text-align: left; margin-bottom: 10px; font-size: 0.8rem;">
 			<span style="color: red;">*</span> 개인정보를 포함한 내용은 게시할 수 없으며 통보없이 삭제 될 수 있습니다.
 		</div>
+		<div class="wrap-md my-5">
 		<form action="${pageContext.servletContext.contextPath }/board/write-handle">
-			<table style="border-collapse: collapse; width: 100%; color: #444;">
-				<tr >
-					<td class="write-td1" style="border-top-color: gray;">작성자</td>
-					<td class="tb2" style="border-top-color: gray; text-indent: 10px"></td>
-				</tr>
-				<tr>
-					<td class="write-td1">제목</td>
-					<td class="tb2">
-						<input class="write-td2" type="text" name="title" placeholder="제목을 입력해주세요" />
-					</td>
-				</tr>
-				<tr>
-					<td class="tb2" style="padding: 12px;" colspan="2">
-					<textarea name="body" class="text-td" placeholder="내용을 입력해주세요"></textarea>
-					</td>
-				</tr>
-				
-			</table>
+			<div class="d-flex my-1" style="gap:10px;">
+				<span>카테고리</span><br /> <select name="category" >
+					<option value="건의사항">건의사항</option>
+					<option value="대회정보">대회정보</option>
+					<option value="질문">질문</option>
+					<option value="운동정보">운동정보</option>
+					<option value="기타">기타</option>
+				</select>
+			</div>
+			<div class="my-1">
+				<span>제목</span><br />
+				 <input name="title" type="text"
+						class="w-100  p-2 border-rounded fs-3" />
+			</div>
+			<div class="my-1">
+				<span>내용</span><br />
+				<textarea name="body" class="w-100  p-2 border-rounded fs-3"
+					style="height: 160px; resize: none"></textarea>
+			</div>
 			<div style="text-align: center; margin-top: 10px"
 				class="no-deco-link">
-				<button type="submit" class="align-right-b b2">저장</button>
+				<button type="submit" class="align-right-b b2">등록</button>
 				<a href="${pageContext.servletContext.contextPath }/board/list">
-					<button type="button" class="bt bt2">취소</button>
+					<button type="button" class="align-right-b b2">취소</button>
 				</a>
 			</div>
 		</form>
+		</div>
 	</div>
 
 </body>

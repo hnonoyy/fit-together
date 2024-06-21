@@ -220,6 +220,9 @@ a {
 }
 
 /* 기본 마진 클래스 */
+.mx{
+	margin : auto;
+}
 .mx-1 {
 	margin: auto 4px;
 }
@@ -292,6 +295,11 @@ a {
 .box-s1{
 	width: 720px;
 	height: 100px;
+	margin: auto;
+}
+.box-s2{
+	width: 720px;
+	height: 400px;
 	margin: auto;
 }
 .search-box{

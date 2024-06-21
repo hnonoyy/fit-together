@@ -22,3 +22,5 @@ public class BoardWriteController extends HttpServlet{
 		request.getRequestDispatcher("/WEB-INF/view/board/write.jsp").forward(request, response);
 	}
 }
+
+

@@ -14,9 +14,9 @@
 			<i class="fa-solid fa-dumbbell"></i>		  		</a>
 	  		<a href="${pageContext.servletContext.contextPath }/events"
 	  		class="fs-3 badge-dark no-deco-link">행사목록 <small></small></a>
-	  		<a href="${pageContext.servletContext.contextPath }/events"
+	  		<a href="${pageContext.servletContext.contextPath }/board/list"
 			class="fs-3 badge-dark no-deco-link">자유게시판 <small></small></a> 
-			<a href="${pageContext.servletContext.contextPath }/events"
+			<a href="${pageContext.servletContext.contextPath }/sportsCenter"
 			class="fs-3 badge-dark no-deco-link">체육시설 <small></small></a>
 			<div>
 				<form class="fa-search" action="${pageContext.servletContext.contextPath }/search">

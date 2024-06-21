@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.dao.BoardDao;
 import model.dao.EventDao;
 
 @WebServlet("/search")
@@ -22,9 +23,10 @@ public class SearchController extends HttpServlet {
 		}else {
 			try {
 				EventDao eventDao = new EventDao();
+				BoardDao boardDao = new BoardDao();
 				
 				request.setAttribute("foundEvents", eventDao.findByTitleLikeOrDescriptionLike(q));
-				
+				request.setAttribute("foundBoard", boardDao.findByTitleLikeOrBodyLikeOrCategory(q));
 								
 				request.getRequestDispatcher("/WEB-INF/view/search-result.jsp").forward(request, response);
 			} catch (Exception e) {

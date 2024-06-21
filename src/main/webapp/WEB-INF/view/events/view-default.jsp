@@ -71,11 +71,12 @@
 			<h3>참가자[${partSize }] | 전체 댓글</h3>
 			<c:forEach var="one" items="${participants }">
 				<p> 
-					${one.id}. <span class="fw-2">${one.userId }</span>
-					<c:if test="${one.userId.equals(events.hostId) }">
+					${one.participants.id}. <span class="fw-2">${one.participants.userId }</span>
+					<c:if test="${one.participants.userId.equals(events.hostId) }">
 					<span class="emphasize">(호스트)</span>
 					</c:if>
-					<span class="fs-5">참가신청날짜 : ${one.joinAt }</span>
+					<span class="fs-5"> (${one.users.gender }/${one.users.birth } )</span>
+					<span class="fs-5">참가신청날짜 : ${one.participants.joinAt }</span>
 				</p>
 			</c:forEach>
 		</div>

@@ -19,7 +19,6 @@ public class BoardWriteHandelController extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			BoardDao boardDao = new BoardDao();
 			
 			Users authUser = (Users) request.getSession().getAttribute("authUser");
 			
@@ -27,13 +26,17 @@ public class BoardWriteHandelController extends HttpServlet{
 			String title = request.getParameter("title");
 			String body = request.getParameter("body");
 			Date writeAt = new Date(System.currentTimeMillis());
+			String category = request.getParameter("category");
 			
-			Board board = new Board(0,writeId,title,body,writeAt,0);
+			Board board = new Board(0,writeId,title,body,writeAt,0,category);
 			
-			boolean r;
-			r = boardDao.save(board);
+			BoardDao boardDao = new BoardDao();
+			boolean r = boardDao.save(board);
+			
 			if(r) {
 				response.sendRedirect(request.getContextPath()+"/board/list");
+			}else {
+				response.sendRedirect(request.getContextPath()+"/board/error");
 			}
 			
 		} catch (Exception e) {

@@ -17,6 +17,7 @@ import model.vo.Events;
 import model.vo.Participants;
 import model.vo.SportsCenter;
 import model.vo.Users;
+import model.vo.complex.ParticipantWithUsersDetail;
 
 @WebServlet("/events/*")
 public class EventsViewController extends HttpServlet {
@@ -45,9 +46,6 @@ public class EventsViewController extends HttpServlet {
 			ParticipantDao participantDao = new ParticipantDao();
 			SportsCenterDao sportCenterDao = new SportsCenterDao();
 			
-			List<Participants> participants =participantDao.findByEventId(id);
-			request.setAttribute("participants", participants);
-			request.setAttribute("partSize", participants.size());
 			
 			SportsCenter sportsCenter= sportCenterDao.findById(events.getsportsCenterId());
 			request.setAttribute("sportsCenter", sportsCenter);
@@ -60,9 +58,10 @@ public class EventsViewController extends HttpServlet {
 			
 			request.setAttribute("dday", dday);
 			
+			List<ParticipantWithUsersDetail> participantwithUserDetail =participantDao.findByEventIdWithUserDetail(id);
 			List<String> userIds = new ArrayList<>();
-			for(Participants one : participants) {
-				userIds.add(one.getUserId());
+			for(ParticipantWithUsersDetail one : participantwithUserDetail) {
+				userIds.add(one.getParticipants().getUserId());
 			}
 			boolean isUserId = false;
 			if(userIds.contains(authUserId)) {
@@ -72,6 +71,8 @@ public class EventsViewController extends HttpServlet {
 			
 			String tab = request.getParameter("tab");
 			if(tab == null) {
+				request.setAttribute("participants", participantwithUserDetail);
+				request.setAttribute("partSize", participantwithUserDetail.size());
 				request.getRequestDispatcher("/WEB-INF/view/events/view-default.jsp").forward(request, response);
 			}else if(tab.equals("comments")) {
 				request.getRequestDispatcher("/WEB-INF/view/events/view-comments.jsp").forward(request, response);

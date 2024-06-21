@@ -10,12 +10,13 @@ public class Board {
 	String body;
 	Date writeAt;
 	int readCnt;
+	String category;
 
 	public Board() {
 		super();
 	}
 
-	public Board(int no, String writeId, String title, String body, Date writeAt, int readCnt) {
+	public Board(int no, String writeId, String title, String body, Date writeAt, int readCnt, String category) {
 		super();
 		this.no = no;
 		this.writeId = writeId;
@@ -23,6 +24,7 @@ public class Board {
 		this.body = body;
 		this.writeAt = writeAt;
 		this.readCnt = readCnt;
+		this.category = category;
 	}
 
 	public int getNo() {
@@ -71,6 +73,14 @@ public class Board {
 
 	public void setReadCnt(int readCnt) {
 		this.readCnt = readCnt;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }
